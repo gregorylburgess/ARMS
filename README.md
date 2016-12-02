@@ -7,3 +7,6 @@ Chewbacca is a collection of useful tools from various programs/frameworks.
 
 ### Usage:
 >python src/ARMS/chewbacca.py -h
+
+## Docs:
+http://chewbacca.readthedocs.io/en/latest/
