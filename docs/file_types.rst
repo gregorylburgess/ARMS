@@ -27,6 +27,7 @@ A Groups file consists of one or more lines in the following format:
 As an example:
 
 ::
+
    Honolulu_site1_0_ID111     Honolulu_site1_0_ID111 Honolulu_site1_0_ID112 Honolulu_site1_0_ID113
    Indonedia_site1_0_ID115    Indonedia_site1_0_ID115 Indonedia_site1_0_ID117
    Philippines_site1_0_ID1    Philippines_site1_0_ID1 Philippines_site1_0_ID2
@@ -61,6 +62,7 @@ CC*SequenceID <tab> SampleID*
 **Example**
 
 ::
+
    Hawaii_site1_0_ID111 GUT_SAMPLE_21
    Hawaii_site1_0_ID112 GUT_SAMPLE_21
    Rodent_gutID113 GUT_SAMPLE_22
