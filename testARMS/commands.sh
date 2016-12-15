@@ -13,7 +13,7 @@ python ~/ARMS/src/ARMS/chewbacca.py -t 2 assemble -n BALI -f 0_preclean  -r 0_pr
 #=================================================================================================
 # Step 2: demux the file into independent samples and rename the sequences with sample names and serial ID#s
 #=================================================================================================
-python ~/ARMS/src/ARMS/chewbacca.py -t 2 demux_samples -i 1_assembled -b ~/ARMS/data/barcodes.txt -o 2a_split
+python ~/ARMS/src/ARMS/chewbacca.py -t 2 demux_barcode -i 1_assembled -b ~/ARMS/data/barcodes.txt -o 2a_split
 python ~/ARMS/src/ARMS/chewbacca.py rename -i 2a_split -o 2b_renamed -f fastq
 
 #=================================================================================================
