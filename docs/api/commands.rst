@@ -23,7 +23,12 @@ Assembling Sequences
 
 Demultiplexing by Barcode
 -------------------------
-.. autoclass:: demux.Demux_Command.Demux_Command
+.. autoclass:: demux.Demux_Barcode_Command.Demux_Barcode_Command
+   :members:
+
+Demultiplexing by Name
+----------------------
+.. autoclass:: demux.Demux_Name_Command.Demux_Name_Command
    :members:
 
 .. _`rename`:
