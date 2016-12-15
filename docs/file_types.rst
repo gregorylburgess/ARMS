@@ -1,6 +1,6 @@
 File Types
 ==========
-Chewbacca uses several common file types. Those are described below.
+Chewbacca uses several common file types and a couple of unique ones. Those are described below.
 
 Fasta File
 -----------
