@@ -6,11 +6,13 @@ Chewbacca uses several common file types. Those are described below.
 Fasta File
 -----------
 **common extensions: .fa, .fasta, .FASTA**
+
 Read more here: https://en.wikipedia.org/wiki/FASTA_format
 
 FastQ File
 -----------
 **extensions: .fq, .fastq, .FASTQ**
+
 Read more here: https://en.wikipedia.org/wiki/FASTQ_format
 
 Groups File
@@ -25,6 +27,8 @@ A Groups file consists of one or more lines in the following format:
 
 As an example:
 
+::
+   
 	Hawaii_site1_0_ID111  Hawaii_site1_0_ID111 Hawaii_site1_0_ID112 Hawaii_site1_0_ID113
 	Indonedia_site1_0_ID115       Indonedia_site1_0_ID115 Indonedia_site1_0_ID117
 	Philippines_site1_0_ID119     philippines_site1_0_ID119
@@ -75,7 +79,7 @@ Barcodes files map the nucleotide prefixes used for multiplexing, to the samples
 
 A Samples file consists of one or more lines in the following format:
 
-::
+
 
 	<Sample_name> <tab> <barcode_sequence>
 
