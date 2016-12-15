@@ -40,11 +40,7 @@ As an example:
 2. See the "naming conventions" section for more info on chewbacca sequence naming standards. SequenceId are created using the a combination of sameple name, file offset,and the sequential number
    ex. Honolulu_site1_0_ID119.
    - Hawaii_site1: This sequence is from the Hawaii_site1 sample.
-   - 0 file offset. When more than one sequence file is used, the
-     files are annotated using different offesets. This makes it easy
-     to track which sequences came from which file, which could
-     potentially represent different sequencing runs, or other things
-     of interest.
+   - 0 file offset. When more than one sequence file is used, the files are annotated using different offesets. This makes it easy to track which sequences came from which file, which could potentially represent different sequencing runs, or other things of interest.
 
 Samples File
 -------------
@@ -88,6 +84,7 @@ A Samples file consists of one or more lines in the following format:
 **Example**
 
 ::
+
    BALI_site_1          agacgc
    BALI_site_2          agtgta
    Hawaii_site_1        actagc
@@ -102,6 +99,7 @@ An Adapters file should be paired with an RC Adapters file, and should contain t
 **Example**
 
 ::
+
    >adapter1
    GGWACWGGWTGAACWGTWTAYCCYCC
    >adapter2
@@ -118,6 +116,7 @@ An RC Adapters file should be paired with an Adapters file, and should contain t
 **Example**
 
 ::
+
    >adapter1_RC
    TGRTTYTTYGGNCAYCCNGARGTNTA
    >adapter2_RC
@@ -137,14 +136,16 @@ Given the blast6 output format, a Tax file consists of one or more
 lines in the following format:
 
 ::
+
    <query> <tab> <target> <tab> <id> <tab> <alnlen> <tab> <qcov>
 
 **Example**
 
 ::
-	BALI4606_0_ID1264_2	GBMAA1117-14	90.6	265	84.7	Animalia;Porifera;Demospongiae;Haplosclerida;Phloeodictyidae;;Calyx;Calyx podatypa
-	BALI4462_0_ID921_1	GBCI5234-15	98.8	258	82.4	Animalia;Cnidaria;Anthozoa;Alcyonacea;Xeniidae;;Xenia;Xenia sp. 1 CSM2014
-	BALI4673_0_ID837_1	KHA237-14	96.1	279	100.0	Animalia;Cnidaria;Anthozoa;Actiniaria;;;;
+
+   BALI4606_0_ID1264_2	GBMAA1117-14	90.6	265	84.7	Animalia;Porifera;Demospongiae;Haplosclerida;Phloeodictyidae;;Calyx;Calyx podatypa
+   BALI4462_0_ID921_1	GBCI5234-15	98.8	258	82.4	Animalia;Cnidaria;Anthozoa;Alcyonacea;Xeniidae;;Xenia;Xenia sp. 1 CSM2014
+   BALI4673_0_ID837_1	KHA237-14	96.1	279	100.0	Animalia;Cnidaria;Anthozoa;Actiniaria;;;;
 
 OTU Table
 ---------
@@ -155,16 +156,19 @@ OTU tables are commonly used in Biological surveys to list OTU abundances in dif
 OTU tables consist of a header line in the following format:
 
 ::
+
    OTU <tab> <Samplename1> <tab> <Samplename2> <tab> <Samplename3> ...
 
 followed by one or more lines (one per OTU) in the follwing format:
 
 ::
+
    <OTU_name> <tab> <Abundance at Samplename1> <tab> <Abundance at Samplename2> <tab> <Abundance at Samplename3>
 
 **Example**
 
 ::
+
    OTU	Hawaii_site1	Indonesia_site2	...
    Rat_Gut_ID3	3	0	...
    Rat_Gut_ID25	1	1	...
@@ -181,11 +185,13 @@ access to the original sequence names.
 A Mapping file consists of one or more lines in the following format:
 
 ::
+
    <old_sequence_name> <tab> <new_sequence_name>
 
 **Example**
 
 ::
+
    M03292:26:000000000-AH6AG:1:1101:16896:1196	BALI4462_0_ID1
    M03292:26:000000000-AH6AG:1:1101:12506:1361	BALI4462_0_ID2
    M03292:26:000000000-AH6AG:1:1101:15278:1402	BALI4462_0_ID3
