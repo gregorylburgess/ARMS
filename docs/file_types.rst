@@ -26,20 +26,18 @@ A Groups file consists of one or more lines in the following format:
   *GROUPID <tab> SequenceID (<space> SequenceID)* ...
 
 As an example:
-
 ::
-   
-	Hawaii_site1_0_ID111  Hawaii_site1_0_ID111 Hawaii_site1_0_ID112 Hawaii_site1_0_ID113
-	Indonedia_site1_0_ID115       Indonedia_site1_0_ID115 Indonedia_site1_0_ID117
-	Philippines_site1_0_ID119     philippines_site1_0_ID119
+   Honolulu_site1_0_ID111Honolulu_site1_0_ID111 Honolulu_site1_0_ID112 Honolulu_site1_0_ID113
+   Indonedia_site1_0_ID115Indonedia_site1_0_ID115 Indonedia_site1_0_ID117
+   Philippines_site1_0_ID1Philippines_site1_0_ID1 Philippines_site1_0_ID2
+
 
 **Notes:**
 
-1. The GROUPID for a group/cluster is a representative sequence from that cluster.
-        This means that a sequenceId  will likely appear twice on a line (once as a GROUPID, and once in the sequence SequenceIds list).
-2. See the "naming conventions" section for more info on chewbacca sequence naming standards.
-   SequenceId are created using the a combination of sameple name, file offset,and the sequential number
-   ex. Hawaii_site1_0_ID119.
+1. The GROUPID for a group/cluster is a representative sequence from that cluster. This means that a sequenceId  will likely appear twice on a line (once as a GROUPID, and once in the sequence SequenceIds list).
+
+2. See the "naming conventions" section for more info on chewbacca sequence naming standards. SequenceId are created using the a combination of sameple name, file offset,and the sequential number
+   ex. Honolulu_site1_0_ID119.
    - Hawaii_site1: This sequence is from the Rodent_gut sample.
    - 0 file offset. When more than one sequence file is used, the files are annotated using different offesets.
      This makes it easy to track which sequences came from which file, which could potentially represent different
