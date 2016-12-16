@@ -13,26 +13,29 @@ Chewbacca Design Philosophies:
 2. **Output goes in folders!** (Keep the working directory clean)
 	Every Chewbacca command should make an output folder.  If that folder already exists, die.  Don't overwrite results.  If a Command writes files that will be neeed downstream,
 	make a new folder for them (separately).  
-	* \*_aux folders are for files that we don't need downstream, but someone might want to look at one day.
+	* \*_aux folders are for files that we don't need downstream, but someone might want to inspect.
 	* .groups files go in a \*_groups directory
 	* .samples go in a \*_samples directory
-	* etc.
+
 
 3. **Commands do one thing.**
-	To make Chewbacca as useful as possible, keep the work units small.  Do one thing (split, merge, cluster, dereplicate, etc.).  One big command may be useful to you, but its probably not applicable to everyone else.
-	Before writing a command, ask yourself: "Will this be useful to someone else?"
+
+   To make Chewbacca as useful as possible, keep the work units small.  Do one thing (split, merge, cluster, dereplicate, etc.).  
 
 4. **Programs do all the work.**
-	Commands represent high-level operations (cluster, dereplicate, rename).  \
-	But under the hood, this could be an involved, messy, complicated process.  Programs should take care of their own buisiness.  \
-	If you need to move a file, rename a file, parse a file, or whatever, do it within the program class (side scripts and helpers are encouraged).
+
+   Commands represent high-level operations (cluster, dereplicate, \
+   rename).  If you need to move a file, rename a file, parse a file, \
+   or whatever, do it within the program class (Program classes inherit from ChewbaccaProgram). side scripts and \
+   helpers are encouraged). 
 
 Chewbacca Design Pattern:
 -------------------------
 **ChewbaccaCommands (classes/ChewbaccaCommand.py)**
 
 ChewbaccaCommands represent high-level commands like "cluster" (Cluster_Command), "partition" (Partition_Command), "dereplicate" (Dereplicate_Command), \
-and know which programs are supported (ChewbaccaCommand.supported_programs), but otherwise oblivious as to HOW those programs operate.
+and know which programs are supported (ChewbaccaCommand.supported_programs), but otherwise \
+oblivious as to HOW those programs operate (they do not know whether we are clustering CROP or vsearch).
 
 **ChewbaccaPrograms (classes/ChewbaccaPrograms.py)**
 
@@ -50,7 +53,7 @@ Chewbacca uses argparse to take in all command line options.
 
 Chewbacca Naming Conventions:
 -----------------------------
-* Command classes should end in "_Command"
+* Command classes should end in "_Command". Ex, assemble or cluster.
 * Program classes should end in "<Command_Name>_Program_<X>", where:
 	 <Command_Name> is the name of the Command your program implements (conceptually, not programatically), and
 	<X> is the sub program name you're using (mothur, Qiime, PEAR, etc), or 'Chewbacca' if you're using a custom script.
@@ -58,6 +61,11 @@ Chewbacca Naming Conventions:
 
 Adding New Programs:
 --------------------
+
+::
+
+   TODO: Add example for on how ot add a new program
+
 1. Add your command line invocation to ProgramRunner
 	1.1. Add a ProgramRunnerProgram enum.
 		This allows users to define paths to the executable.
@@ -67,7 +75,6 @@ Adding New Programs:
 		This exposes your command to the world.
 	1.4. Add your command string to the ProgramRunner.commandTemplates dictionary
 		This makes your command actually do something.
-
 2. Add a parser for your command.
 	Add a subparser to the argparse object, and fill in the variables and help messages you'll expose to users.
 		NOTE: Make sure you include a -p 'program' flag for your parser if you have more than one program for that command

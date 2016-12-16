@@ -5,6 +5,8 @@ Available Commands
 ==================
 Below is a list of the available Chewbacca commands.  
 
+`preclean`_
+
 .. _`preclean`:
 
 Error Correction
