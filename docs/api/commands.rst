@@ -11,6 +11,7 @@ Below is a list of the available Chewbacca commands.
 
 Error Correction
 ----------------
+**Note**: This functionality is still untested and can over correct legitimate variation
 .. autoclass:: preclean.Preclean_Command.Preclean_Command
    :members:
 

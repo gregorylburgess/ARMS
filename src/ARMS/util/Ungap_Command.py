@@ -7,7 +7,7 @@ class Ungap_Command(ChewbaccaCommand):
 
     **Inputs**:
         * One or more fasta/fastq files to clean.
-        * A string of gap characters to remove.
+        * A string of one or more gap characters to remove.
 
     **Outputs**:
         * \*_cleaned.<ext> file - A <fasta/fastq> file with gap characters removed from its sequences.

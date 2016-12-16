@@ -4,25 +4,25 @@ from Demux_Barcode_Program_Fastx import Demux_Program_Fastx
 
 
 class Demux_Name_Command(ChewbaccaCommand):
-    """Given a set of files, each file is assigned a file_ID#.  Each file is then split into separate child files where
+    """Given a set of files, each file is assigned a file offset.  Each file is then split into separate child files where
         each file holds only sequences belonging to a single sample.  These child files are named using the sample name
-        for the sequences it lists, and the file_ID# of the file it came from.  Demuxing is based on unique
+        for the sequences it lists, and the file offset of the file it came from.  Demuxing is based on unique
         sample names contained in sequence names.
 
     **Inputs**:
-        * One or more fasta/fastq files to demux.  Sequences in these files should be named with the sample they came
-            from.
+        * One or more fasta/fastq files to demux.  Sequences in these files should contain as a prefix the sample they came \
+            from. (This is untested)
         * A single .barcodes file: A :ref:`.barcodes`, listing samples as they appear in sequence names, but actual \
             barcode sequences can be made up.  This command will only make use of barcode names.
 
     **Outputs**:
-        * <sample_name>_<file_id#>_ demux.<ext> file(s) - <fasta/fastq> files, containing all the sequences from file \
+        * <sample_name>_<offset>_ demux.<ext> file(s) - <fasta/fastq> files, containing all the sequences from file \
             <file_id#>, which had a sequence name containing sample <sample_name>.
-        * unmatched_<file_id#>_ demux.<ext> file(s) - <fasta/fastq> files, containing sequences from file \
+        * unmatched_<offset>_ demux.<ext> file(s) - <fasta/fastq> files, containing sequences from file \
             <file_id#>, whose barcode did not match any of those listed in the .barcodes file.
 
     **Notes**:
-        * The assignment of ID# to file should be treated as an arbitrary process and should not used for record \
+        * The assignment of offset to file should be treated as an arbitrary process and should not used for record \
             keeping.
         * Each input file will generate its own unmatched_* file (if applicable).
 
@@ -56,7 +56,7 @@ class Demux_Name_Command(ChewbaccaCommand):
 
     ``$ python chewbacca.py demux_names -i data/ -b Data.barcodes -o rslt``
 
-    Here, we see that Data1.fasta was assigned '0' as an ID#, while Data2.fasta was assigned '1' as an ID#.  Because \
+    Here, we see that Data1.fasta was assigned '0' as an offset, while Data2.fasta was assigned '1' as an offset.  Because \
     both files had sequences from SampleA, the sequences from Data1.fasta  were written to SampleA_0_demux.fastq, \
     and those sequences from Data2.fasta were written to SampleA_1_demux.fastq.  The same is true for SampleB.
 

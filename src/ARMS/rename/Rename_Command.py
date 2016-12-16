@@ -4,13 +4,13 @@ from Rename_Program_Chewbacca import Rename_Program_Chewbacca
 
 class Rename_Command(ChewbaccaCommand):
     """
-    Renames sequences in a file with their filename and a serial ID#.  Useful for simplifying complex naming systems \
+    Renames sequences in a file with their sampleID and a serial ID#.  Useful for simplifying complex naming systems \
     into \
     human-readable sequence names.  In order to ensure the correct sample names are preserved, it is reccomended that \
     this command be run immediately after the :ref:`Demux Command`.
 
     **Inputs**:
-        * One or more fasta/fastq files to rename.
+        * A single fasta/fastq file or a directory containing multiple fasta/fastq files.
 
     **Outputs**:
         * _renamed.<ext> file - A <fasta/fastq> file with the renamed sequences.
@@ -20,9 +20,9 @@ class Rename_Command(ChewbaccaCommand):
     **Notes**:
         * In order for the .samples file to correctly list the sample name of the sequences in a file, this command \
             should be run immediately after the Demux Command.
-        * The *--clip* parameter tells Chewbacca that trailing _<file_ID#> (from the demultiplexing command) should not
-            be considered part of the sample name.  By default this is set to True, and should be fine.  If you notice
-            parts of your sample names getting clipped off in your .samples file, you should explicitly set this
+        * The *--clip* parameter tells Chewbacca that trailing _<offset numebr> (from the demuxing command) should not  \
+            be considered part of the sample name when naming sequences.  By default this is set to True, and should be fine.  If you notice \
+            parts of your sample names getting clipped off in your .samples file, you should explicitly set this \
             parameter to False.
         * Each input file will have a corresponding .samples, .mapping, and _renamed file.
         * The .samples file is needed by downstream Chewbacca processes (Building the OTU Table).

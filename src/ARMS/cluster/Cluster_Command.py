@@ -12,7 +12,7 @@ class Cluster_Command(ChewbaccaCommand):
 
     **Inputs**:
         * One or more fasta files to cluster.
-        * Optional: :ref:`.groups` - A list of representative names and the names of their replicant \
+        * Optional: :ref:`.groups` - A list of representative names and the names of their seed \
                                             sequences.  You likely have one of these files if you've previously run a \
                                             clustering or dereplication command.
 
@@ -21,9 +21,9 @@ class Cluster_Command(ChewbaccaCommand):
         * \*.groups  - A :ref:`.groups`
 
     **Notes**:
-        * The input fasta file(s) should have been dereplicated before clustering.
-        * For a single experiment with multiple fasta files, it is best to merge all input fasta files, dereplicate
-            them, then cluster the single merged and dereplicated fasta file.  This provides the best OTU groupings.
+        * The input fasta file(s) should have been dereplicated before clustering. \
+        * For a single experiment with multiple fasta files, it is best to merge all input fasta files, dereplicate \
+            them, then cluster the single merged and dereplicated fasta file.  This provides the best OTU groupings. 
 
     **Example**:
 

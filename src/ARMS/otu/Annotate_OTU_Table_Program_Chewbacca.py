@@ -19,7 +19,7 @@ class Annotate_OTU_Table_Program_Chewbacca(ChewbaccaProgram):
         :param input_f: Filepath to a file or folder of files to annotate.
         :param annotation: Filepath to a file or a folder of files to use as annotations.
         :param outdir: Filepath to the output directory where annotated files will be written.
-        :param processes: The maximum number of processes to use.
+        :param procs: The maximum number of procs to use.
         """
         matricies = getInputFiles(input_f)
         debugPrintInputInfo(matricies, "annotated.")

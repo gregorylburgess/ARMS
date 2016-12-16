@@ -11,14 +11,14 @@ class Clean_Adapters_Command(ChewbaccaCommand):
             <BARCODE><ADAPTER><SEQUENCE><RC_ADAPTER>.
 
         Valid ADAPTER sequences, and their
-        reverse-complements (RC_ADAPTER) should be defined separately in a pair of fasta-formatted files.  Sequences
+        reverse-complements (ADAPTER_RC) should be defined separately in a pair of fasta-formatted files.  Sequences
         passed to this command should have already been demultiplexed, as this process will remove the identifying
         barcode sequences.
 
         **Inputs**:
             * One or more fasta/fastq files to clean.
             * A single :ref:`.adapters` file
-            * A single :ref:`.adaptersRC` file
+            * A single :ref:`.adapters_RC` file
 
         **Outputs**:
             * <filename>_debarcoded.<ext> file(s) - <fasta/fastq> files, containing sequences with their leading \
@@ -54,7 +54,7 @@ class Clean_Adapters_Command(ChewbaccaCommand):
             rslt/
                 Data_debarcoded.fastq:
                     @Data_ID#1
-                    ATCGATCGATCG
+                    CATCGATCGATCG
         """
 
     supported_programs = [Clean_Adapters_Program_Flexbar]

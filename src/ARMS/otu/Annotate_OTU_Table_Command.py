@@ -4,8 +4,9 @@ from Annotate_OTU_Table_Program_Chewbacca import Annotate_OTU_Table_Program_Chew
 
 
 class Annotate_OTU_Table_Command(ChewbaccaCommand):
-    """Annotates an OTU table with Taxonomic names by replacing sequence names in the OTU table with their identified
-    taxonomies.
+    """Annotates an OTU table with taxonomic names by replacing sequence names in the OTU table with their identified \
+    taxonomies. Multiple OTU can annotated with the same taxonomic name -- those are not combined.
+
 
    **Inputs**:
         * An :ref:`OTU_table` to annotate.

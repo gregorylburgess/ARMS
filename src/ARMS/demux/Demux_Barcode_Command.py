@@ -4,9 +4,9 @@ from Demux_Barcode_Program_Fastx import Demux_Program_Fastx
 
 
 class Demux_Barcode_Command(ChewbaccaCommand):
-    """Given a set of files, each file is assigned a file_ID#.  Each file is then split into separate child files where
+    """Given a set of files, each file is assigned a file offeset (value between sampleId and sequenceId).  Each file is then split into separate child files where
         each file holds only sequences belonging to a single sample.  These child files are named using the sample name
-        for the sequences it lists, and the file_ID# of the file it came from.  Demuxing is based on the nucleotide
+        for the sequences it lists, and the file offset of the file it came from.  Demuxing is based on the nucleotide
         barcode prefixing each sequence.
 
     **Inputs**:
@@ -20,7 +20,7 @@ class Demux_Barcode_Command(ChewbaccaCommand):
             <file_id#>, whose barcode did not match any of those listed in the .barcodes file.
 
     **Notes**:
-        * The assignment of ID# to file should be treated as an arbitrary process and should not used for record \
+        * The assignment of the offset to file should be treated as an arbitrary process and should not used for record \
             keeping.
         * Each input file will generate its own unmatched_* file (if applicable).
 
@@ -50,7 +50,7 @@ class Demux_Barcode_Command(ChewbaccaCommand):
 
     ``$ python chewbacca.py demux_samples -i data/ -b Data.barcodes -o rslt``
 
-    Here, we see that Data1.fasta was assigned '0' as an ID#, while Data2.fasta was assigned '1' as an ID#.  Because \
+    Here, we see that Data1.fasta was assigned '0' as an offset, while Data2.fasta was assigned '1' as an offset.  Because \
     both files had sequences from SampleA, the sequences from Data1.fasta  were written to SampleA_0_demux.fastq, \
     and those sequences from Data2.fasta were written to SampleA_1_demux.fastq.  The same is true for SampleB.
 

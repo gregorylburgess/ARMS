@@ -4,7 +4,8 @@ from otu.Query_OTU_DB_Program_Vsearch import Query_OTU_DB_Program_Vsearch
 
 class Query_OTU_DB_Command(ChewbaccaCommand):
     """Aligns sequences in a fasta file against those in a reference database in order to determine OTU identity.
-
+    
+    Only alignment based identification using vsearch is currenty available
 
     **Inputs**:
         * One or more fasta files containing sequences to identify.

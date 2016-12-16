@@ -4,30 +4,30 @@ from Dereplicate_Program_Vsearch import Dereplicate_Program_Vsearch
 
 class Dereplicate_Command(ChewbaccaCommand):
     """Dereplicates a fasta file by grouping identical reads together under one representative sequence.  The
-    number of duplicate/replicant sequences each representative sequence represents is given by a 'replication count' at
+    number of duplicate/seed sequences each representative sequence represents is given by a 'replication count' at
     the end of
     the sequence name in output fasta file.  If a .groups file is provided, then previous replication counts will
     be take in into account (e.g. Imagine a representative sequence X that represents 3 sequences.  If X is found to be
-    a replicant of another sequence Y, X will add 3 to replication count of Y).  Replication counts are denoted with a
-    suffix of '_K' on the sequence name, where K is the replication count for the group that sequence represents.
+     identical to Y (no a seed for any other sequence) then the new cardinality, or replication count, of X becomes 4.  Cardinality are denoted with a
+    suffix of '_K' on the sequence name, where K is the cardinality for the group that sequence represents.
 
 
     **Inputs**:
         * One or more fasta files to dereplicate.
-        * Optional: :ref:`.groups` - A list of representative names and the names of their replicant \
+        * Optional: :ref:`.groups` - A list of representative names and the names of their seed \
                                             sequences.  You likely have one of these files if you've previously run a \
                                             clustering or dereplication command.
 
     **Outputs**:
         * _counts.fasta file - A fasta file with unique sequences and their replication counts.
-        * _derep:ref:`.groups` - A list of representative names and the names of their replicant \
+        * _derep:ref:`.groups` - A list of representative names and the names of their seed \
                                             sequences.
 
     **Notes**:
         * This command only dereplicates within each fasta file (not across all files). \
             This means a sequence in one file will be unique within that file, but might exist in another file. \
             To ensure sequences are uniqe across an entire dataset, merge all fasta files into one file, then \
-            dereplicate that fasta file.
+            dereplicate that fasta file. It the fasta files each have group files, then make sure you merge those as well.
 
 
         * Each input file will generate a corresponding _count file.
@@ -50,7 +50,7 @@ class Dereplicate_Command(ChewbaccaCommand):
                 AAA
                 >seq3
                 AAAG
-                >seq4
+                >seq4_3
                 AAAGT
                 >seq7
                 AAAGT
@@ -59,8 +59,7 @@ class Dereplicate_Command(ChewbaccaCommand):
                 seq4	seq4 seq5 seq6
 
     In the above example, test.groups indicates that seq4 is a sequence that has previously been identified as a
-    representative (in some earlier round of clustering or dereplication).  Note that seq4 is a representative
-    for a 'group' of identical sequences and therefore listed within that group.
+    representative (in some earlier round of clustering or dereplication).
 
     ``$ python chewbacca.py dereplicate_fasta -i Data.fasta -o rslt -g test.groups``
 

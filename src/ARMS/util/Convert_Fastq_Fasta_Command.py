@@ -3,11 +3,11 @@ from util.Convert_Fastq_Fasta_Program_Chewbacca import Convert_Fastq_Fasta_Progr
 
 
 class Convert_Fastq_Fasta_Command(ChewbaccaCommand):
-    """Converts a Fasta-formatted file to a FastQ-formatted file.  Useful for reducing data size and preparing for
+    """Converts a Fastq-formatted file to a Fasta-formatted file.  Useful for reducing data size and preparing for
         fasta-only operations.
 
         **Inputs**:
-            * One or more fastq files to convert to fasta.
+            * A fastq file or a director conataining multiple fastq files .
 
         **Outputs**:
             * <filename>.fasta file(s) - Converted fasta files.
@@ -17,20 +17,21 @@ class Convert_Fastq_Fasta_Command(ChewbaccaCommand):
         ::
 
             ./
-                Data.fasta:
+                Data.fastq:
                     @Data_ID#1
                     AGACGCGGWACWGGWTGAACWGTWTAYCCYCCATCGATCGATCGTGRTTYTTYGGNCAYCCNGARGTNTA
 
 
-        ``$ python chewbacca.py trim_adapters  -i Data.fasta -o rslt -a Data.adapters -arc Data.adapters_RC``
+        ``$ python chewbacca.py trim_adapters  -i Data.fasta -o rslt ``
 
 
         ::
 
             rslt/
-                Data_debarcoded.fastq:
-                    @Data_ID#1
-                    ATCGATCGATCG
+                Data.fasta:
+                    >Data_ID#1
+                    AGACGCGGWACWGGWTGAACWGTWTAYCCYCCATCGATCGATCGTGRTTYTTYGGNCAYCCNGARGTNTA
+
     """
     supported_programs = [Convert_Fastq_Fasta_Program_Chewbacca]
     default_program = Convert_Fastq_Fasta_Program_Chewbacca
