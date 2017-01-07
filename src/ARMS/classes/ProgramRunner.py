@@ -165,7 +165,7 @@ class ProgramRunner(ValidRunner):
             ProgramRunnerCommands.CLUSTER_VSEARCH: self.program_paths[ProgramRunnerPrograms.VSEARCH] +
                                                     " --cluster_size %s -id %f --centroids %s --uc %s",
             ProgramRunnerCommands.CLEAN_TRIMMOMATIC: self.program_paths[ProgramRunnerPrograms.JAVA] +
-                                                    " " + self.program_paths[ProgramRunnerPrograms.TRIMMOMATIC] +
+                                                    " -jar " + self.program_paths[ProgramRunnerPrograms.TRIMMOMATIC] +
                                                     " SE -phred33 %s %s SLIDINGWINDOW:%d:%d MINLEN:%d",
             ProgramRunnerCommands.DEREP_VSEARCH: self.program_paths[ProgramRunnerPrograms.VSEARCH] +
                                                     " --threads %d --quiet --derep_fulllength %s --sizeout \
