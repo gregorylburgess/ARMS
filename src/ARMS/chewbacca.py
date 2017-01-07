@@ -162,7 +162,7 @@ def main(argv):
     parser_trim.add_argument('-i', '--input_f', required=True, help="Input fasta/fastq file or folder.")
     parser_trim.add_argument('-o', '--outdir', required=True, help="Directory where outputs will be saved.")
     parser_trim.add_argument('-a', '--adapters', required=True, help="Forwards Adapters file.")
-    parser_trim.add_argument('-arc', '--adaptersrc', required=True, help="Reverse Complimented Adapters file.")
+    parser_trim.add_argument('-arc', '--adaptersrc', required=True, help="Reverse Complemented Adapters file.")
     parser_trim.add_argument('-p', '--program', required=False, default="flexbar", help="Indicates which \
                             program to use.  Choices are: 'flexbar'.  Default: 'flexbar'.")
     parser_trim.add_argument('-u', '--allowedns', required=False, default=0, type=int, help=" Flexbar: The number of \
