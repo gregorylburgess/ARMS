@@ -10,6 +10,7 @@ def merge_files(input_file_list, output_file):
     merged_file = BufferedFileWriter(output_file)
     for fname in input_file_list:
         for line in open(fname):
+            line = line.rstrip()
             merged_file.write(line)
     merged_file.flush()
     return output_file
