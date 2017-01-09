@@ -20,7 +20,7 @@ Quick Start
 
 ::
 
-	$ docker load -it chewbacca_vx.x.x
+	$ docker load -i chewbacca_vx.x.x
 	# cd ~/ARMS/testARMS
 	# python ~/ARMS/src/ARMS/chewbacca.py --help
 
