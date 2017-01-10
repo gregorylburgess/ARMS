@@ -25,6 +25,7 @@ class BufferedFileWriter(object):
 
     def __write__(self):
         self.out_stream.write("\n".join(self.buffer))
+        self.out_stream.write("\n")
         self.buffer = []
         self.len = 0
         self.has_written = True

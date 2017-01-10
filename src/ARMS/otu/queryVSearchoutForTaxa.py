@@ -18,7 +18,7 @@ def printErrorMissingID(out, ID):
     """
     err = "***********************    Id %s not found ****************************\n\
             Missing Taxonomic info for a reference sequence.\n\
-            Check that you have provided the correct mapping/reference files.." % ID
+            Check that you have provided the correct mapping/reference files..\n\n" % ID
     sys.stderr.write(err)
     out.write(err)
 
