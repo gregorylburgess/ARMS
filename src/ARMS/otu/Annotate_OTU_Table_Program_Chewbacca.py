@@ -4,7 +4,7 @@ from classes.Helpers import getInputFiles, debugPrintInputInfo, init_pool, run_p
     cleanup_pool
 from classes.PythonRunner import PythonRunner
 from itertools import product
-
+import sys
 
 class Annotate_OTU_Table_Program_Chewbacca(ChewbaccaProgram):
     name = "chewbacca"
@@ -21,9 +21,12 @@ class Annotate_OTU_Table_Program_Chewbacca(ChewbaccaProgram):
         :param outdir: Filepath to the output directory where annotated files will be written.
         :param procs: The maximum number of procs to use.
         """
+        # matrixes = getInputFiles(input_f)
         matricies = getInputFiles(input_f)
         debugPrintInputInfo(matricies, "annotated.")
         annotations = getInputFiles(annotation)
+
+        
         # if all the annotations files are empty, just copy over files.
         if len(annotations) == 0 and len(getInputFiles(annotation, ignore_empty_files=False)) > 0:
             pool = init_pool(min(len(matricies), processes))
@@ -37,6 +40,8 @@ class Annotate_OTU_Table_Program_Chewbacca(ChewbaccaProgram):
             inputs = product(matricies, annotations)
 
             printVerbose("Annotating matrix...")
+
+            
             run_parallel([PythonRunner(annotateOTUtable, [matrix, annotation, "%s/%s.txt" % (outdir, "matrix")],
                                        {"exists": [matrix, annotation]})
                           for matrix, annotation in inputs], pool)
