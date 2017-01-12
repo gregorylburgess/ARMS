@@ -321,7 +321,7 @@ def validate_paired_fastq_reads(input_f, input_r):
                 Forwards reads should include the filename suffix \"_forward\" or \"R1\".  Reverse reads should \
                 include the filename suffix \"_reverse\" or \"R2\"."
         exit()
-    return zip(set(forwards_reads), set(reverse_reads))
+    return zip(forwards_reads, reverse_reads)
 
 
 def one_to_one_or_one_to_many(n, m):
