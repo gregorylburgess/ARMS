@@ -26,7 +26,7 @@ class Visualize_OTU_Heatmap_Program_Chewbacca(ChewbaccaProgram):
         nrows = len(data_frame.index.values)
         printVerbose("Computing dataframe values...")
         fig, ax = plt.subplots(figsize=(10 + ncols / .5, 7 + nrows / 10.0))
-        heatmap = ax.pcolor(data_frame, cmap=plt.cm.gnuplot2)
+        heatmap = ax.pcolor(data_frame, cmap=plt.cm.binary)
         ax.set_xticks(np.arange(ncols) + 0.5)
         ax.set_yticks(np.arange(nrows) + 0.5)
         ax.set_xticklabels(data_frame.columns.values, rotation=90, fontsize=4)

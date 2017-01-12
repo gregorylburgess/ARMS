@@ -177,13 +177,13 @@ class ProgramRunner(ValidRunner):
                                                     " --only-error-correction --disable-gzip-output -1 %s -2 %s -o %s \
                                                     -t %d",
             ProgramRunnerCommands.MACSE_ALIGN: self.program_paths[ProgramRunnerPrograms.JAVA] +
-                                                    " " + self.program_paths[ProgramRunnerPrograms.MACSE] +
+                                                    " -jar " + self.program_paths[ProgramRunnerPrograms.MACSE] +
                                                     " -prog enrichAlignment  -seq %s -align \
                                                     %s -seq_lr %s -maxFS_inSeq 0  -maxSTOP_inSeq 0  -maxINS_inSeq 0 \
                                                     -maxDEL_inSeq 3 -gc_def 5 -fs_lr -10 -stop_lr -10 -out_NT %s_NT \
                                                     -out_AA %s_AA -seqToAdd_logFile %s_log.csv",
             ProgramRunnerCommands.MACSE_FORMAT: self.program_paths[ProgramRunnerPrograms.JAVA] +
-                                                    " " + self.program_paths[ProgramRunnerPrograms.MACSE] +
+                                                    " -jar " + self.program_paths[ProgramRunnerPrograms.MACSE] +
                                                     " -prog exportAlignment -align %s \
                                                     -charForRemainingFS - -gc_def 5 -out_AA %s -out_NT %s -statFile %s",
         }
