@@ -21,6 +21,7 @@ def buildOTUtable(latest_groups_files, inital_samples_files, barcodes_file, out_
     all_sample_names = set()
     for samples_file in inital_samples_files:
         printVerbose("Reading samples file: %s" % samples_file)
+
         with open(samples_file, 'r') as current_samples_file:
             for line in current_samples_file:
                 name, sample = line.split()
@@ -45,6 +46,10 @@ def buildOTUtable(latest_groups_files, inital_samples_files, barcodes_file, out_
                 # read the latest groups file
                 for line in current_groups_file:
                     data = line.split("\t")
+
+                    # TODO: if line is empty... need to find the readson for this
+                    if not data:
+                        continue
                     # found a cluster_main
                     if len(data) == 2:
                         otu = data[0].rstrip()
@@ -74,6 +79,7 @@ def buildOTUtable(latest_groups_files, inital_samples_files, barcodes_file, out_
                     # WRITE THE COUNTS TO THE OUT FILE
                     # for each sample in the barcodes list, write otu to a txt file as a single line
                     out_line = otu
+                    
                     for sample_name in all_sample_names:
                         out_line += "\t%s" % sample_counts[sample_name]
                     out.write(out_line + "\n")
