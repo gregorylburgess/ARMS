@@ -15,6 +15,11 @@ def buildOTUtable(latest_groups_files, inital_samples_files, barcodes_file, out_
     :param barcodes_file:       A single barcodes file listing all valid sample names.
     :param out_file:            Filepath to the output directory
     """
+    print "latest_groups_files: %s " % latest_groups_files
+    print "inital_samples_files: %s " % inital_samples_files
+    print "barcodes_file: %s " % barcodes_file
+    
+    
     seq_to_sample = {}
     # read the initaial groups/samples file (from rename)
     # make a single dict from all the groups/samples files mapping seqname to group
@@ -29,9 +34,11 @@ def buildOTUtable(latest_groups_files, inital_samples_files, barcodes_file, out_
                 seq_to_sample[name] = sample_name
                 all_sample_names.add(sample_name)
     all_sample_names = sorted(all_sample_names)
+
     printVerbose("Found the following sample names:")
     printVerbose(str(all_sample_names))
-
+    #sys.exit(0)
+    
     with open(out_file, 'w') as out:
         header_line = "OTU"
         for sample in all_sample_names:
